@@ -2,13 +2,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import Axios from 'axios'
 
 // TMDB credentials
-const API_KEY = `9273546a9b32ca8a80662e9dc411a708`
+const { REACT_APP_TMDB_KEY } = process.env
 
 // fetch titles
 export const fetchTitles = createAsyncThunk(
 	'titles/fetchTitles',
 	async ({ media_type, category, page }) => {
-		const TITLES_PATH = `https://api.themoviedb.org/3/${media_type}/${category}?api_key=${API_KEY}&page=${
+		const TITLES_PATH = `https://api.themoviedb.org/3/${media_type}/${category}?api_key=${REACT_APP_TMDB_KEY}&page=${
 			!page ? 1 : page
 		}`
 		try {
@@ -24,7 +24,7 @@ export const fetchTitles = createAsyncThunk(
 export const fetchTitleDetails = createAsyncThunk(
 	'titles/fetchTitleDetails',
 	async ({ id, media_type }) => {
-		const DETAILS_PATH = `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${API_KEY}`
+		const DETAILS_PATH = `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${REACT_APP_TMDB_KEY}`
 		const response = await Axios.get(DETAILS_PATH)
 		return response.data
 	}
