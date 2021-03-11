@@ -50,7 +50,7 @@ function Signup() {
 	}
 
 	return (
-		<div className='container mx-auto mt-4 flex flex-col items-center'>
+		<div className='container mx-auto mt-4 flex flex-col items-center mb-20'>
 			<h2 className='text-lg font-bold uppercase text-gray-500'>Sign Up</h2>
 			{error && <ErrorMessage message={error} />}
 			<form

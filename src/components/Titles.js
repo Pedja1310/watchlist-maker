@@ -20,7 +20,7 @@ function Titles() {
 	}, [media_type, category, page, dispatch])
 
 	return (
-		<div className='container mx-auto p-4 flex flex-col items-center pb-20'>
+		<div className='container mx-auto p-4 flex flex-col items-center mb-20'>
 			<div className=''>
 				<CategoryDropdown />
 			</div>
